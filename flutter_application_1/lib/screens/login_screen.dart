@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dashboard_screen.dart'; // Importe a nova tela
+import 'email_request_screen.dart'; // Importe a nova tela
+import 'dashboard_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -109,26 +110,36 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         // Lógica de login comentada para backend
                         // TODO: Implementar validação de login pelo backend
-                        // Exemplo de validação fictícia:
-                        // if (userController.text == 'user' && passwordController.text == 'pass') {
+                        print('Login realizado!'); // Placeholder
+                        // Navega para DashboardScreen como simulação
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => const DashboardScreen()),
                         );
-                        // }
                       },
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 18),
-              // Texto de ajuda
-              const Text(
-                'Esqueci minha senha\nou não tenho cadastro',
-                style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w500,
+              // Texto de ajuda clicável
+              Align(
+                alignment: Alignment.centerLeft,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const EmailRequestScreen()),
+                    );
+                  },
+                  child: const Text(
+                    'Esqueci minha senha\nou não tenho cadastro',
+                    style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
               ),
             ],
